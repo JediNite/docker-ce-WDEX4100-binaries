@@ -22,7 +22,7 @@ This repository hosts the binary files for running Docker CE on a WD EX4100.  Th
 # cd packaging/static
 # make static-linux
 ```
-4. The build will now run and when completed will save the files into components/packaging/static/build/linux.
+4. The build will now run and when completed will save the files into docker-ce-WDEX4100/docker-ce/components/packaging/static/build/linux.
 ```
 # ls -al
 drwxr-xr-x    3 root     root          4096 Jun 30 08:26 .
