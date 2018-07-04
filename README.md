@@ -11,18 +11,18 @@ This repository hosts the binary files for running Docker CE on a WD EX4100.  Th
 # cd docker-ce-WDEX4100
 # git clone https://github.com/docker/docker-ce.git
 ```
-* Once downloaded apply the patch to update the build version and the build of the docuker-runc executable
+* Once downloaded apply the patch to update the build version and the build of the docker-runc executable.
 ```
 # cd docker-ce
 # wget https://raw.githubusercontent.com/JediNite/docker-ce-WDEX4100-binaries/master/docker-ce-build/docker-ce-build.patch
 # patch < docker-ce-build.patch
 ```
-* Make the Linux package files
+* Make the Linux package files.
 ```
 # cd packaging/static
 # make static-linux
 ```
-* The build will now run and when completed will save the files into components/packaging/static/build/linux
+* The build will now run and when completed will save the files into components/packaging/static/build/linux.
 ```
 # ls -al
 drwxr-xr-x    3 root     root          4096 Jun 30 08:26 .
