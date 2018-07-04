@@ -5,7 +5,7 @@ This repository hosts the binary files for running Docker CE on a WD EX4100.  Th
 
 ## Installation
 
-1. Download the official docker-ce source
+1. Download the official docker-ce source.
 ```
 # mkdir docker-ce-WDEX4100
 # cd docker-ce-WDEX4100
@@ -41,5 +41,3 @@ drwxr-xr-x    3 root     root          4096 Jun 30 08:26 ..
 -rwxr-xr-x    1 root     root       5894200 Jul  3 21:57 docker-runc
 -rwxr-xr-x    1 root     root      41693300 Jul  3 21:57 dockerd
 ```
-
-
