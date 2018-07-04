@@ -15,7 +15,7 @@ This repository hosts the binary files for running Docker CE on a WD EX4100.  Th
 ```
 # cd docker-ce
 # wget https://raw.githubusercontent.com/JediNite/docker-ce-WDEX4100-binaries/master/docker-ce-build/docker-ce-build.patch --no-check-certificate
-# patch < docker-ce-build.patch
+# patch -p0 < docker-ce-build.patch
 ```
 3. Make the Linux package files.
 ```
