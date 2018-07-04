@@ -12,7 +12,7 @@
  	cd "$GOPATH/src/github.com/opencontainers/runc"
  	git checkout -q "$RUNC_COMMIT"
 +	# Customizations for WD EX4100
-+       apt-get install -y patch wget
++	apt-get install -y patch wget
 +	wget https://github.com/JediNite/docker-ce-WDEX4100-binaries/raw/master/runc-build/runc-build.patch
 +	patch < runc-build.patch
 +	# End Customizations for WD EX4100
