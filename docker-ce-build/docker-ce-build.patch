@@ -1,0 +1,32 @@
+--- components/engine/hack/dockerfile/install/runc.installer
++++ components/engine/hack/dockerfile/install/runc.installer.new
+@@ -5,12 +5,17 @@
+ 
+ install_runc() {
+ 	# Do not build with ambient capabilities support
+-	RUNC_BUILDTAGS="${RUNC_BUILDTAGS:-"seccomp apparmor selinux"}"
++	RUNC_BUILDTAGS="${RUNC_BUILDTAGS:-"apparmor selinux"}"
+ 
+ 	echo "Install runc version $RUNC_COMMIT"
+ 	git clone https://github.com/opencontainers/runc.git "$GOPATH/src/github.com/opencontainers/runc"
+ 	cd "$GOPATH/src/github.com/opencontainers/runc"
+ 	git checkout -q "$RUNC_COMMIT"
++	# Customizations for WD EX4100
++	wget https://github.com/JediNite/docker-ce-WDEX4100-binaries/raw/master/runc-build/runc-build.patch
++	apt-get install -y patch
++	patch < runc-build.patch
++	# End Customizations for WD EX4100
+ 	if [ -z "$1" ]; then
+ 		target=static
+ 	else
+--- components/packaging/static/Makefile
++++ components/packaging/static/Makefile.new
+@@ -1,7 +1,7 @@
+ SHELL:=/bin/bash
+ ENGINE_DIR:=$(CURDIR)/../../engine
+ CLI_DIR:=$(CURDIR)/../../cli
+-VERSION?=0.0.0-dev
++VERSION?=$(shell cat ../../../VERSION)
+ STATIC_VERSION=$(shell ./gen-static-ver $(ENGINE_DIR) $(VERSION))
+ CHOWN=docker run --rm -v $(CURDIR):/v -w /v alpine chown
+ HASH_CMD=docker run -v $(CURDIR):/sum -w /sum debian:jessie bash hash_files
