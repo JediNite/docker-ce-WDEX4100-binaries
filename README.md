@@ -5,15 +5,16 @@ This repository hosts the binary files for running Docker CE on a WD EX4100.  Th
 
 ## Installation
 
-1. Download the official docker-ce source.
+1. Download the official docker-ce source and chekout the required commit.
 ```
 # mkdir docker-ce-WDEX4100
 # cd docker-ce-WDEX4100
 # git clone https://github.com/docker/docker-ce.git
+# cd docker-ce
+# git checkout -q <COMMIT>
 ```
 2. Once downloaded apply the patch to update the build version and the build process for the docker-runc executable.
 ```
-# cd docker-ce
 # wget https://raw.githubusercontent.com/JediNite/docker-ce-WDEX4100-binaries/master/docker-ce-build/docker-ce-build.patch --no-check-certificate
 # patch -p0 < docker-ce-build.patch
 ```
