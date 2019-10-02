@@ -13,7 +13,7 @@ This repository hosts the binary files for running Docker CE on a WD EX4100.  Th
 # cd docker-ce
 # git checkout -q <COMMIT>
 ```
-2. Once downloaded apply the patch to update the build version and the build process for the docker-runc executable.
+2. Once downloaded apply the patch to update the build version and the build process for the docker-runc executable. (This file needs to be updated as it no longer works correctly on new versions)
 ```
 # wget https://raw.githubusercontent.com/JediNite/docker-ce-WDEX4100-binaries/master/docker-ce-build/docker-ce-build.patch --no-check-certificate
 # patch -p0 < docker-ce-build.patch
