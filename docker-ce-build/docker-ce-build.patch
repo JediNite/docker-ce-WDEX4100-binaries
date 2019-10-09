@@ -1,13 +1,13 @@
 --- components/engine/hack/dockerfile/install/runc.installer
 +++ components/engine/hack/dockerfile/install/runc.installer.new
-@@ -5,12 +5,17 @@
+@@ -13,12 +13,17 @@
+ 	fi
  
- install_runc() {
  	# Do not build with ambient capabilities support
--	RUNC_BUILDTAGS="${RUNC_BUILDTAGS:-"seccomp apparmor selinux"}"
-+	RUNC_BUILDTAGS="${RUNC_BUILDTAGS:-"apparmor selinux"}"
+-	RUNC_BUILDTAGS="${RUNC_BUILDTAGS:-"seccomp apparmor selinux $RUNC_NOKMEM"}"
++	RUNC_BUILDTAGS="${RUNC_BUILDTAGS:-"apparmor selinux $RUNC_NOKMEM"}"
  
- 	echo "Install runc version $RUNC_COMMIT"
+ 	echo "Install runc version $RUNC_COMMIT (build tags: $RUNC_BUILDTAGS)"
  	git clone https://github.com/opencontainers/runc.git "$GOPATH/src/github.com/opencontainers/runc"
  	cd "$GOPATH/src/github.com/opencontainers/runc"
  	git checkout -q "$RUNC_COMMIT"
@@ -19,14 +19,14 @@
  	if [ -z "$1" ]; then
  		target=static
  	else
---- components/packaging/static/Makefile
-+++ components/packaging/static/Makefile.new
-@@ -1,7 +1,7 @@
+--- components/packaging/common.mk
++++ components/packaging/common.mk.new
+@@ -5,7 +5,7 @@
+ GO_VERSION:=1.12.10
+ PLATFORM=Docker Engine - Community
  SHELL:=/bin/bash
- ENGINE_DIR:=$(CURDIR)/../../engine
- CLI_DIR:=$(CURDIR)/../../cli
 -VERSION?=0.0.0-dev
 +VERSION?=$(shell cat ../../../VERSION)
- STATIC_VERSION=$(shell ./gen-static-ver $(ENGINE_DIR) $(VERSION))
- CHOWN=docker run --rm -v $(CURDIR):/v -w /v alpine chown
- HASH_CMD=docker run -v $(CURDIR):/sum -w /sum debian:jessie bash hash_files
+ 
+ export BUILDTIME
+ export DEFAULT_PRODUCT_LICENSE
