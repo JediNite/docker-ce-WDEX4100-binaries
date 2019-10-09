@@ -1,0 +1,32 @@
+--- components/engine/hack/dockerfile/install/runc.installer
++++ components/engine/hack/dockerfile/install/runc.installer.new
+@@ -13,12 +13,17 @@
+ 	fi
+ 
+ 	# Do not build with ambient capabilities support
+-	RUNC_BUILDTAGS="${RUNC_BUILDTAGS:-"seccomp apparmor selinux $RUNC_NOKMEM"}"
++	RUNC_BUILDTAGS="${RUNC_BUILDTAGS:-"apparmor selinux $RUNC_NOKMEM"}"
+ 
+ 	echo "Install runc version $RUNC_COMMIT (build tags: $RUNC_BUILDTAGS)"
+ 	git clone https://github.com/opencontainers/runc.git "$GOPATH/src/github.com/opencontainers/runc"
+ 	cd "$GOPATH/src/github.com/opencontainers/runc"
+ 	git checkout -q "$RUNC_COMMIT"
++	# Customizations for WD EX4100
++	apt-get install -y patch wget
++	wget https://github.com/JediNite/docker-ce-WDEX4100-binaries/raw/master/runc-build/runc-build.patch
++	patch < runc-build.patch
++	# End Customizations for WD EX4100
+ 	if [ -z "$1" ]; then
+ 		target=static
+ 	else
+--- components/packaging/common.mk
++++ components/packaging/common.mk.new
+@@ -5,7 +5,7 @@
+ GO_VERSION:=1.12.10
+ PLATFORM=Docker Engine - Community
+ SHELL:=/bin/bash
+-VERSION?=0.0.0-dev
++VERSION?=$(shell cat ../../../VERSION)
+ 
+ export BUILDTIME
+ export DEFAULT_PRODUCT_LICENSE
