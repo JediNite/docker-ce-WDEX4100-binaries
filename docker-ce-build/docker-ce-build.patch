@@ -1,6 +1,6 @@
 --- components/engine/hack/dockerfile/install/runc.installer
 +++ components/engine/hack/dockerfile/install/runc.installer.new
-@@ -13,12 +13,17 @@
+@@ -13,12 +13,18 @@
  	fi
  
  	# Do not build with ambient capabilities support
@@ -12,6 +12,7 @@
  	cd "$GOPATH/src/github.com/opencontainers/runc"
  	git checkout -q "$RUNC_COMMIT"
 +	# Customizations for WD EX4100
++	apt-get update
 +	apt-get install -y patch wget
 +	wget https://github.com/JediNite/docker-ce-WDEX4100-binaries/raw/master/runc-build/runc-build.patch
 +	patch < runc-build.patch
