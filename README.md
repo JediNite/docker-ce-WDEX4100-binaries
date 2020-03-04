@@ -25,28 +25,28 @@ This repository hosts the binary files for running Docker CE on a WD EX4100.  Th
 ```
 4. The build will now run and when completed will save the files into docker-ce-WDEX4100/docker-ce/components/packaging/static/build/linux.
 ```
-# ls -al
-drwxr-xr-x    4 root     root          4096 Oct 10 09:14 .
-drwxr-xr-x    3 root     root          4096 Oct 10 09:14 ..
-drwxr-xr-x    2 root     root          4096 Oct 10 09:14 docker
--rw-r--r--    1 root     root      57845465 Oct 10 09:14 docker-19.03.3.tgz
-drwxr-xr-x    2 root     root          4096 Oct 10 09:14 docker-rootless-extras
--rw-r--r--    1 root     root       9043302 Oct 10 09:15 docker-rootless-extras-19.03.3.tgz
-# ls -al docker
-drwxr-xr-x    2 root     root          4096 Oct 10 09:14 .
-drwxr-xr-x    4 root     root          4096 Oct 10 09:14 ..
--rwxr-xr-x    1 root     root      30686808 Oct 10 09:14 containerd
--rwxr-xr-x    1 root     root       5464400 Oct 10 09:14 containerd-shim
--rwxr-xr-x    1 root     root      16597664 Oct 10 09:14 ctr
--rwxr-xr-x    1 root     root      49924846 Oct 10 09:14 docker
--rwxr-xr-x    1 root     root        387564 Oct 10 09:14 docker-init
--rwxr-xr-x    1 root     root       2669160 Oct 10 09:14 docker-proxy
--rwxr-xr-x    1 root     root      63878000 Oct 10 09:14 dockerd
--rwxr-xr-x    1 root     root       6980584 Oct 10 09:14 runc
-# ls -al docker-rootless-extras
-drwxr-xr-x    2 root     root          4096 Oct 10 09:14 .
-drwxr-xr-x    4 root     root          4096 Oct 10 09:14 ..
--rwxr-xr-x    1 root     root          2893 Oct 10 09:14 dockerd-rootless.sh
--rwxr-xr-x    1 root     root      10712745 Oct 10 09:14 rootlesskit
--rwxr-xr-x    1 root     root       6565656 Oct 10 09:14 rootlesskit-docker-proxy
+
+root@WDMyCloudEX4100 linux # ls -al *
+-rw-r--r--    1 root     root      58228722 Mar  5 06:11 docker-19.03.7.tgz
+-rw-r--r--    1 root     root       9045209 Mar  5 06:11 docker-rootless-extras-19.03.7.tgz
+
+docker:
+drwxr-xr-x    2 root     root          4096 Mar  5 06:11 .
+drwxr-xr-x    4 root     root          4096 Mar  5 06:11 ..
+-rwxr-xr-x    1 root     root      30723896 Mar  5 06:11 containerd
+-rwxr-xr-x    1 root     root       5464400 Mar  5 06:11 containerd-shim
+-rwxr-xr-x    1 root     root      16622464 Mar  5 06:11 ctr
+-rwxr-xr-x    1 root     root      50073252 Mar  5 06:10 docker
+-rwxr-xr-x    1 root     root        387564 Mar  5 06:11 docker-init
+-rwxr-xr-x    1 root     root       2669160 Mar  5 06:11 docker-proxy
+-rwxr-xr-x    1 root     root      64013260 Mar  5 06:11 dockerd
+-rwxr-xr-x    1 root     root       7826036 Mar  5 06:11 runc
+
+docker-rootless-extras:
+drwxr-xr-x    2 root     root          4096 Mar  5 06:11 .
+drwxr-xr-x    4 root     root          4096 Mar  5 06:11 ..
+-rwxr-xr-x    1 root     root          3173 Mar  5 06:11 dockerd-rootless.sh
+-rwxr-xr-x    1 root     root      10703184 Mar  5 06:11 rootlesskit
+-rwxr-xr-x    1 root     root       6565656 Mar  5 06:11 rootlesskit-docker-proxy
+
 ```
