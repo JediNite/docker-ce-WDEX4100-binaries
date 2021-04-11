@@ -1,0 +1,27 @@
+--- Dockerfile
++++ Dockerfile.new
+@@ -8,7 +8,7 @@
+ ARG VPNKIT_VERSION=0.4.0
+ ARG DOCKER_BUILDTAGS="apparmor seccomp"
+ 
+-ARG BASE_DEBIAN_DISTRO="buster"
++ARG BASE_DEBIAN_DISTRO="stretch"
+ ARG GOLANG_IMAGE="golang:${GO_VERSION}-${BASE_DEBIAN_DISTRO}"
+ 
+ FROM ${GOLANG_IMAGE} AS base
+@@ -119,6 +119,7 @@
+ 
+ FROM dev-base AS runtime-dev-cross-false
+ ARG DEBIAN_FRONTEND
++RUN echo 'deb http://deb.debian.org/debian stretch-backports main' > /etc/apt/sources.list.d/backports.list
+ RUN --mount=type=cache,sharing=locked,id=moby-cross-false-aptlib,target=/var/lib/apt \
+     --mount=type=cache,sharing=locked,id=moby-cross-false-aptcache,target=/var/cache/apt \
+         apt-get update && apt-get install -y --no-install-recommends \
+@@ -165,6 +166,7 @@
+ 
+ FROM dev-base AS containerd
+ ARG DEBIAN_FRONTEND
++RUN echo 'deb http://deb.debian.org/debian stretch-backports main' > /etc/apt/sources.list.d/backports.list
+ RUN --mount=type=cache,sharing=locked,id=moby-containerd-aptlib,target=/var/lib/apt \
+     --mount=type=cache,sharing=locked,id=moby-containerd-aptcache,target=/var/cache/apt \
+         apt-get update && apt-get install -y --no-install-recommends \
