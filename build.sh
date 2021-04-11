@@ -57,4 +57,4 @@ done
 tar -C build/linux -c -z -f build/linux/docker-rootless-extras-${GEN_STATIC_VER}.tgz docker-rootless-extras
 echo "Completed build of Docker Rootless-Extras Bundle file..."
 
-echo "Docker bundle files are located in `pwd`/build/linux/docker ..."
+echo "Docker bundle files are located in `pwd`/build/linux ..."
