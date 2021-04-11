@@ -29,7 +29,7 @@ export GIT_DOCKER_ENGINE="https://github.com/moby/moby.git"
 ```
 4. The script will then download the required content for both CLI and ENGINE, "checkout" the correct versions, patch DOCKER_ENGINE to use "stretch", compile the required binaries and then finally build the bundle packages
 ```
-root@WDMyCloudEX4100 docker-20.10.5-ce # ./build.sh
+root@WDMyCloudEX4100 docker-build # ./build.sh
 Cloning GitHub repositories...
 Cloning into 'cli'...
 remote: Enumerating objects: 111, done.
