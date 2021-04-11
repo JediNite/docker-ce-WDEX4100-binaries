@@ -5,11 +5,12 @@ This repository hosts the binary files for running Docker CE on a WD EX4100 runn
 
 ## Installation
 
-1. Take a copy of the "build.sh" script in this repository and place into an empty directory on the WD EX4100 NAS (eg. /shares/Public/docker-build)
+1. Take a copy of the "build.sh" script and "Dockerfile.patch" in this repository and place into an empty directory on the WD EX4100 NAS (eg. /shares/Public/docker-build)
 ```
 # mkdir /shares/Public/docker-build
 # cd /shares/Public/docker-build
-# wget https://raw.githubusercontent.com/JediNite/docker-ce-WDEX4100-binaries/master/docker-ce-build/build.sh --no-check-certificate
+# wget https://github.com/JediNite/docker-ce-WDEX4100-binaries/raw/master/build.sh --no-check-certificate
+# wget https://github.com/JediNite/docker-ce-WDEX4100-binaries/raw/master/Dockerfile.patch --no-check-certificate
 ```
 2. Check the values in the top of the script are correct for what you require.  For example :
 ```
