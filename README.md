@@ -2,6 +2,8 @@
 
 This repository hosts the binary files for running Docker CE on a WD EX4100 running OS5.  There are also additional files that can be used to take an existing docker-ce commit and prepare it for compilation on a WD EX4100.
 
+The background for this procedure was worked out by GitHub user gabrielitos87 per discussions in https://github.com/WDCommunity/wdpksrc/issues/85.
+
 
 ## Installation
 
