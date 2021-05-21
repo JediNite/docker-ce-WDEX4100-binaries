@@ -25,6 +25,7 @@ export GIT_DOCKER_ENGINE="https://github.com/moby/moby.git"
 3. Run the script
 ```
 # cd /shares/Public/docker-build
+# chmod +x build.sh
 # ./build.sh
 ```
 4. The script will then download the required content for both CLI and ENGINE, "checkout" the correct versions, patch DOCKER_ENGINE to use "stretch", compile the required binaries and then finally build the bundle packages
