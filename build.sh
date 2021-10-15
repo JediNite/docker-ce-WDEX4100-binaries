@@ -2,7 +2,7 @@
 
 export CLI_DIR="cli"
 export ENGINE_DIR="moby"
-export GEN_STATIC_VER="20.10.6"
+export GEN_STATIC_VER="20.10.9"
 export GIT_DOCKER_CLI="https://github.com/docker/cli.git"
 export GIT_DOCKER_ENGINE="https://github.com/moby/moby.git"
 
